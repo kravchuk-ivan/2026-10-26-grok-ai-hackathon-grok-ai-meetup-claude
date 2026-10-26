@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "hue-are-you",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash"
+  },
+  "durable_objects": {
+    "bindings": [{ "name": "ROOM", "class_name": "Room" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Room"] }],
+  "vars": {
+    "EVENT_NAME": "Grok Hackathon Toronto",
+    "XAI_MODEL": "grok-4-1-fast-non-reasoning",
+    "CIRCLE_SIZE": "8"
+  },
+  "observability": { "enabled": true }
+  // Secrets (set with `npx wrangler secret put <NAME>`): XAI_API_KEY, ADMIN_KEY
+}

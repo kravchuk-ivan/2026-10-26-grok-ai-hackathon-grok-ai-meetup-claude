@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hue are you? · Wall</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='35' cy='40' r='28' fill='%23FF2D3D'/%3E%3Ccircle cx='65' cy='40' r='28' fill='%232F5BFF' fill-opacity='.85'/%3E%3Ccircle cx='50' cy='65' r='28' fill='%23FFD60A' fill-opacity='.8'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&display=swap">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/wall.css">
+</head>
+<body class="wall">
+  <div class="w">
+    <aside class="w-side">
+      <h1 class="w-title">Hue are you?</h1>
+      <div class="w-qr" id="qr"></div>
+      <p class="w-url" id="url"></p>
+      <p class="w-steps">Scan. Answer five.<br>Raise your phone.<br>Find your color.</p>
+      <div class="w-stats">
+        <div><b id="s-total">0</b><span>people</span></div>
+        <div><b id="s-countries">0</b><span>countries</span></div>
+        <div><b id="s-sealed">0</b><span>tribes sealed</span></div>
+      </div>
+    </aside>
+    <main class="w-tribes" id="tribes"></main>
+    <footer class="w-feed"><span class="w-feed-label">Just joined</span><div id="feed"></div></footer>
+  </div>
+  <div id="toasts" class="toasts"></div>
+  <section id="story" class="story" hidden></section>
+  <div id="admin" class="admin" hidden></div>
+  <script src="/vendor/qrcode.js"></script>
+  <script type="module" src="/wall.js"></script>
+</body>
+</html>
