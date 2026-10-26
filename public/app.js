@@ -353,9 +353,7 @@ function renderSeal() {
     el.innerHTML = `
       <div class="card-head"><h3>${esc(seal.name)}</h3><span class="badge">Sealed</span></div>
       <p class="ritual">${esc(seal.ritual)}</p>
-      ${seal.chat
-        ? `<a class="btn tribe" href="${esc(seal.chat)}" target="_blank" rel="noopener">Join the group chat →</a>`
-        : `<p class="muted">No group chat yet. Make one and add the link.</p>`}
+      <p class="muted">Same color, same people. See you there.</p>
       <p class="fine">Sealed by ${esc(seal.by)} · <button class="link inline" data-edit>Edit</button></p>`;
     return;
   }
@@ -367,9 +365,6 @@ function renderSeal() {
         <input name="name" maxlength="40" placeholder="${esc(t.name)}" value="${esc(seal?.name || "")}"></label>
       <label class="field"><span>First ritual: what, when, where</span>
         <textarea name="ritual" maxlength="140" rows="2">${esc(seal?.ritual || t.ritual)}</textarea></label>
-      <label class="field"><span>Group chat invite link</span>
-        <input name="chat" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="https://chat.whatsapp.com/…" value="${esc(seal?.chat || "")}"></label>
-      <p class="fine" style="text-align:left;margin:0">Create a WhatsApp, Telegram or Discord group, then paste its invite link.</p>
       <p class="error" id="seal-error" hidden></p>
       <button class="btn tribe" type="submit">${seal ? "Save" : "Seal it"}</button>
       ${seal ? `<button class="link" type="button" data-cancel>Cancel</button>` : ""}
@@ -380,12 +375,10 @@ async function sealSubmit(e) {
   e.preventDefault();
   const form = e.target;
   const f = new FormData(form);
-  let chat = String(f.get("chat") || "").trim();
-  if (chat && !/^https?:\/\//i.test(chat)) chat = `https://${chat}`;
   const btn = form.querySelector("[type=submit]");
   btn.disabled = true;
   try {
-    ME = await api("/api/seal", { id: ME.me.id, name: f.get("name"), ritual: f.get("ritual"), chat });
+    ME = await api("/api/seal", { id: ME.me.id, name: f.get("name"), ritual: f.get("ritual") });
     editing = false;
     sealSig = "";
     update();

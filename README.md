@@ -14,10 +14,10 @@ Most of us are immigrants in Toronto who work from home, and it gets lonely. An 
 2. **Reveal.** Your phone floods with your color (8 tribes: Red / Sunrise Sweat, Orange / The Long Table, Yellow / Night Builders, …) and Grok writes one line about you from your answers.
 3. **Raise your phone.** Full-screen color plus a circle number (circles of 8 inside each color so groups stay small enough to talk). Same color, same number: that's your group.
 4. **Talk.** The phone shows conversation prompts for your tribe and lists who's in your circle (first name + flag).
-5. **Make it real.** One person per tribe names the tribe, picks a first ritual (what / when / where), and pastes a WhatsApp/Telegram/Discord invite link. Every phone in that color updates with a "Join the group chat" button. The wall announces it.
+5. **Make it real.** One person per tribe names the tribe and picks a first ritual (what / when / where; a suggestion is pre-filled). Every phone in that color updates and the wall announces it.
 6. **Finale.** On the wall, the admin presses *Write stories with Grok*. Grok writes an origin story for each tribe from everyone's answers (countries, names, what they miss from home, their ritual), then a closing story for the whole room. Story mode plays them full-screen, one color at a time.
 
-The ritual is what keeps the community going after the event: the group chat exists and the first meetup is on the calendar.
+The ritual is what keeps the community going after the event: the first meetup is already on the calendar.
 
 ## Pages
 

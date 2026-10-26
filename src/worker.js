@@ -199,7 +199,7 @@ export class Room extends DurableObject {
         circle: members
           .filter((m) => m.circle === p.circle)
           .map((m) => ({ name: m.name || "Someone", cc: m.cc, home: m.home, found: m.found, me: m.id === p.id })),
-        seal: t.sealedAt ? { name: t.name, ritual: t.ritual, chat: t.chat, by: t.by } : null,
+        seal: t.sealedAt ? { name: t.name, ritual: t.ritual, by: t.by } : null,
         story: t.story || "",
       },
     };
@@ -275,13 +275,10 @@ export class Room extends DurableObject {
 
   seal(body) {
     const p = this.person(body.id);
-    const chat = clip(body.chat, 300);
-    if (chat && !/^https?:\/\/\S+$/i.test(chat)) throw new HttpError(400, "The chat link should start with https://");
     const t = this.tribeState(p.tribe);
     const isNew = !t.sealedAt;
     t.name = clip(body.name, 40) || TRIBES[p.tribe].name;
     t.ritual = clip(body.ritual, 140) || TRIBES[p.tribe].ritual;
-    t.chat = chat;
     t.by = p.name || "Someone";
     t.sealedAt = Date.now();
     this.saveTribe(p.tribe);
